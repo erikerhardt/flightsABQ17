@@ -1,6 +1,6 @@
 #' Hourly weather data
 #'
-#' Hourly meterological data for ABQ.
+#' Hourly meterological data for ABQ.  From 2008 through 2015 the data is hourly, from 2016 it is every 5 minutes.
 #'
 #' @source ASOS download from Iowa Environmental Mesonet,
 #'   https://mesonet.agron.iastate.edu/request/download.phtml.

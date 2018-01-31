@@ -1,10 +1,10 @@
 Package: flightsABQ17
-Title: Flights that Departed ABQ in 2017
+Title: Flights that Departed ABQ from 2008 through 2017
 Version: 0.0.1
 Authors@R: c(
     person("Erik", "Erhardt", , "erik@statacumen.com", c("aut", "cre"))
     )
-Description: Airline on-time data for all flights departing ABQ in 2017.
+Description: Airline on-time data for all flights departing ABQ from 2008 through 2017.
     Also includes useful 'metadata' on airlines, airports, weather, and planes.
     Derived from http://github.com/hadley/nycflights13
 License: CC0

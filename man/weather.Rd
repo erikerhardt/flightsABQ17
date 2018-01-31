@@ -26,6 +26,6 @@ ASOS download from Iowa Environmental Mesonet,
 weather
 }
 \description{
-Hourly meterological data for ABQ.
+Hourly meterological data for ABQ.  From 2008 through 2015 the data is hourly, from 2016 it is every 5 minutes.
 }
 \keyword{datasets}

@@ -1,6 +1,6 @@
 #' Flights data
 #'
-#' On-time data for all flights that departed ABQ in 2017.
+#' On-time data for all flights that departed ABQ from 2008 through 2017.
 #'
 #' @source RITA, Bureau of transportation statistics,
 #'  \url{http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236}

@@ -1,5 +1,5 @@
 # Run after flights.R
-# run 1/31/2018 2:31AM
+# run 1/31/2018 12:56PM
 
 library(dplyr)
 library(readr)
@@ -7,15 +7,17 @@ library(readr)
 # Update URL from
 # http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/
 #src <- "http://registry.faa.gov/database/AR062014.zip"
-src <- "http://registry.faa.gov/database/yearly/ReleasableAircraft.2017.zip"
+#src <- "http://registry.faa.gov/database/yearly/ReleasableAircraft.2017.zip"
+fn <- "ReleasableAircraft.zip"
+src <- paste0("http://registry.faa.gov/database/", fn) # all
 lcl <- "data-raw/planes"
 
 if (!file.exists(lcl)) {
-  tmp <- tempfile(fileext = ".zip")
-  download.file(src, tmp)
+  # tmp <- tempfile(fileext = ".zip")
+  download.file(src, paste0(lcl, "/", fn))
 
   dir.create(lcl)
-  unzip(tmp, exdir = lcl, junkpaths = TRUE)
+  unzip(paste0(lcl, "/", fn), exdir = lcl, junkpaths = TRUE)
 }
 
 ## Remove initial 3 unicode characters from MASTER.txt and ACFTREF.txt

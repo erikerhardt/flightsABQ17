@@ -1,7 +1,7 @@
 # flightsABQ17
 
 This package contains information about all flights that departed from ABQ
-in 2017 (through November): 17,460 flights in total. To help understand
+from 2008 through 2017 (through November): 285,541 flights in total. To help understand
 what causes delays, it also includes a number of other useful datasets:
 
 * `weather`: hourly meterological data for each airport
