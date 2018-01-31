@@ -1,6 +1,7 @@
-# run 1/31/2018 1:45AM
+# run 1/31/2018 12:56PM
 
 # From https://mesonet.agron.iastate.edu/request/download.phtml?network=NY_ASOS
+# From https://mesonet.agron.iastate.edu/request/download.phtml?network=NM_ASOS
 
 library(httr)
 library(dplyr)
@@ -13,11 +14,11 @@ get_asos <- function(station) {
   url <- "http://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
   query <- list(
     station = station, data = "all",
-    year1 = "2017", month1 = "1", day1 = "1",
+    year1 = "2008", month1 = "1", day1 = "1",
     year2 = "2017", month2 = "12", day2 = "31", tz = "GMT",
     format = "comma", latlon = "no", direct = "yes")
 
-  dir.create("data-raw/weather", showWarnings = FALSE, recursive = TRUE)
+  #dir.create("data-raw/weather", showWarnings = FALSE, recursive = TRUE)
   r <- GET(url, query = query, write_disk(paste0("./data-raw/weather/weather", station, ".csv")))
   stop_for_status(r)
 }
