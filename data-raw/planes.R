@@ -1,9 +1,13 @@
+# Run after flights.R
+# run 1/31/2018 2:31AM
+
 library(dplyr)
 library(readr)
 
 # Update URL from
 # http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/
-src <- "http://registry.faa.gov/database/AR062014.zip"
+#src <- "http://registry.faa.gov/database/AR062014.zip"
+src <- "http://registry.faa.gov/database/yearly/ReleasableAircraft.2017.zip"
 lcl <- "data-raw/planes"
 
 if (!file.exists(lcl)) {
@@ -14,6 +18,8 @@ if (!file.exists(lcl)) {
   unzip(tmp, exdir = lcl, junkpaths = TRUE)
 }
 
+## Remove initial 3 unicode characters from MASTER.txt and ACFTREF.txt
+
 master <- read.csv("data-raw/planes/MASTER.txt", stringsAsFactors = FALSE, strip.white = TRUE)
 names(master) <- tolower(names(master))
 
@@ -21,7 +27,7 @@ keep <- master %>%
   tbl_df() %>%
   select(nnum = n.number, code = mfr.mdl.code, year = year.mfr)
 
-ref <- read.csv("data-raw/planes//ACFTREF.txt", stringsAsFactors = FALSE,
+ref <- read.csv("data-raw/planes/ACFTREF.txt", stringsAsFactors = FALSE,
   strip.white = TRUE)
 names(ref) <- tolower(names(ref))
 

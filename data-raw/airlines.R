@@ -1,3 +1,6 @@
+# Run after flights.R
+# run 1/31/2018 2:32AM
+
 library(dplyr)
 library(readr)
 

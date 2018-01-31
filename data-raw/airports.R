@@ -1,7 +1,10 @@
+# run 1/31/2018 1:33AM
+
 library(dplyr)
 library(readr)
 library(purrr)
 
+# https://github.com/jpatokal/openflights
 if (!file.exists("data-raw/airports.dat")) {
   download.file(
     "https://raw.githubusercontent.com/jpatokal/openflights/master/data/airports.dat",
@@ -10,8 +13,9 @@ if (!file.exists("data-raw/airports.dat")) {
 }
 
 raw <- read_csv("data-raw/airports.dat",
-  col_names = c("id", "name", "city", "country", "faa", "icao", "lat", "lon", "alt", "tz", "dst", "tzone")
+  col_names = c("id", "name", "city", "country", "faa", "icao", "lat", "lon", "alt", "tz", "dst", "tzone", "airport", "OurAirports")
 )
+# Warning: 322 parsing failures.
 
 airports <- raw %>%
   filter(country == "United States", faa != "") %>%
@@ -28,6 +32,7 @@ airports %>%
   coord_quickmap() +
   theme_void()
 ggsave("data-raw/airports.svg", width = 8, height = 6)
+ggsave("data-raw/airports.pdf", width = 8, height = 6)
 
 write_csv(airports, "data-raw/airports.csv")
 save(airports, file = "data/airports.rda")

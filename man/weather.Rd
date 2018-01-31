@@ -26,6 +26,6 @@ ASOS download from Iowa Environmental Mesonet,
 weather
 }
 \description{
-Hourly meterological data for LGA, JFK and EWR.
+Hourly meterological data for ABQ.
 }
 \keyword{datasets}

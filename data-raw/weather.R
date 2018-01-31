@@ -1,3 +1,5 @@
+# run 1/31/2018 1:45AM
+
 # From https://mesonet.agron.iastate.edu/request/download.phtml?network=NY_ASOS
 
 library(httr)
@@ -11,16 +13,16 @@ get_asos <- function(station) {
   url <- "http://mesonet.agron.iastate.edu/cgi-bin/request/asos.py?"
   query <- list(
     station = station, data = "all",
-    year1 = "2013", month1 = "1", day1 = "1",
-    year2 = "2013", month2 = "12", day2 = "31", tz = "GMT",
+    year1 = "2017", month1 = "1", day1 = "1",
+    year2 = "2017", month2 = "12", day2 = "31", tz = "GMT",
     format = "comma", latlon = "no", direct = "yes")
 
   dir.create("data-raw/weather", showWarnings = FALSE, recursive = TRUE)
-  r <- GET(url, query = query, write_disk(paste0("./data-raw/weather", station, ".csv")))
+  r <- GET(url, query = query, write_disk(paste0("./data-raw/weather/weather", station, ".csv")))
   stop_for_status(r)
 }
 
-stations <- c("JFK", "LGA", "EWR")
+stations <- "ABQ" # c("JFK", "LGA", "EWR")
 paths <- paste0(stations, ".csv")
 missing <- stations[!(paths %in% dir("data-raw/weather/"))]
 lapply(missing, get_asos)
@@ -28,7 +30,7 @@ lapply(missing, get_asos)
 # Load ------------------------------------------------------------------------
 
 paths <- dir("data-raw/weather", full.names = TRUE)
-all <- lapply(paths, read_csv, skip = 4, na = "M", col_names = FALSE, col_types =
+all <- lapply(paths, read_csv, skip = 5, na = "M", col_names = FALSE, col_types =
   cols(
     .default = col_double(),
     X1 = col_character(),
@@ -59,7 +61,7 @@ weather <- raw %>%
     wind_speed = as.numeric(wind_speed) * 1.15078, # convert to mpg
     wind_gust = as.numeric(wind_speed) * 1.15078
   ) %>%
-  mutate(year = 2013, month = month(time), day = mday(time), hour = hour(time)) %>%
+  mutate(year = 2017, month = month(time), day = mday(time), hour = hour(time)) %>%
   group_by(station, month, day, hour) %>%
   filter(row_number() == 1) %>%
   select(origin = station, year:hour, temp:visib) %>%
