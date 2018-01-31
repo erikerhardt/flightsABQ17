@@ -5,7 +5,7 @@
 #' rather than tail numbers (e.g. \url{http://www.flyerguide.com/Tail_Numbers_(AA)})
 #' so can't be matched.
 #'
-#' @source FAA Aircraft registry,
+#' @source FAA Aircraft registry for 2017,
 #'  \url{http://www.faa.gov/licenses_certificates/aircraft_certification/aircraft_registry/releasable_aircraft_download/}
 #' @format A data frame with columns:
 #' \describe{

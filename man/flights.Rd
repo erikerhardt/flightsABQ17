@@ -31,7 +31,6 @@ RITA, Bureau of transportation statistics,
 flights
 }
 \description{
-On-time data for all flights that departed NYC (i.e. JFK, LGA or EWR) in
-2013.
+On-time data for all flights that departed ABQ in 2017.
 }
 \keyword{datasets}
