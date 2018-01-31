@@ -8,3 +8,10 @@ what causes delays, it also includes a number of other useful datasets:
 * `planes`: construction information about each plane
 * `airports`: airport names and locations
 * `airlines`: translation between two letter carrier codes and names
+
+Install remotely with the following two lines:
+
+```
+library(devtools)
+install_github("erikerhardt/flightsABQ17")
+```
