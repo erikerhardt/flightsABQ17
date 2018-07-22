@@ -9,9 +9,7 @@ what causes delays, it also includes a number of other useful datasets:
 * `airports`: airport names and locations
 * `airlines`: translation between two letter carrier codes and names
 
-Install remotely with the following two lines:
-
+Install remotely with the following line:
 ```
-library(devtools)
-install_github("erikerhardt/flightsABQ17")
+devtools::install_github("erikerhardt/flightsABQ17")
 ```
